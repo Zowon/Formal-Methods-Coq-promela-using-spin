@@ -1,0 +1,20 @@
+#define BUFFER_SIZE 1
+chan buffer = [BUFFER_SIZE] of { int };
+
+active proctype Producer() {
+    int item;
+    do
+    :: select(item : 1..100); // random item between 1 and 100
+       buffer!item; // Add item to the buffer
+       printf("Produced: %d\n", item);
+    od
+}
+
+active proctype Consumer() {
+    int item;
+    do
+    :: buffer?item; // Remove item from the buffer
+       printf("Consumed: %d\n", item);
+    od
+}
+

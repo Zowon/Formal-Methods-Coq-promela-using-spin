@@ -1,0 +1,99 @@
+// #include <gtest/gtest.h>
+// #include "../src/calculator.h"
+// #include <limits>
+
+// // Test cases
+// TEST(CalculatorTest, Addition) {
+//     EXPECT_EQ(add(2, 3), 5);
+//     EXPECT_EQ(add(-1, -1), -2);
+// }
+
+// TEST(CalculatorTest, Subtraction) {
+//     EXPECT_EQ(subtract(5, 3), 2);
+//     EXPECT_EQ(subtract(-1, 1), -2);
+// }
+
+// TEST(CalculatorTest, Multiplication) {
+//     EXPECT_EQ(multiply(2, 3), 6);
+//     EXPECT_EQ(multiply(-2, 3), -6);
+// }
+
+// TEST(CalculatorTest, Division) {
+//     EXPECT_EQ(divide(6, 3), 2);
+//     EXPECT_EQ(divide(1, 0), std::numeric_limits<double>::infinity());
+// }
+
+// TEST(CalculatorTest, BitwiseAnd) {
+//     EXPECT_EQ(bitwise_and(5, 3), 1);
+// }
+
+// TEST(CalculatorTest, BitwiseOr) {
+//     EXPECT_EQ(bitwise_or(5, 3), 7);
+// }
+
+// TEST(CalculatorTest, BitwiseNot) {
+//     EXPECT_EQ(bitwise_not(5), ~5);
+// }
+
+// int main(int argc, char **argv) {
+//     ::testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }
+#include <gtest/gtest.h>
+#include "../src/calculator.h"
+#include <limits>
+
+// Test cases for addition
+TEST(CalculatorTest, Addition) {
+    EXPECT_EQ(add(2, 3), 5);                 // Positive numbers
+    EXPECT_EQ(add(-5, -3), -8);             // Negative numbers
+    EXPECT_EQ(add(2.5, 3.5), 6);            // Decimal numbers
+}
+
+// Test cases for subtraction
+TEST(CalculatorTest, Subtraction) {
+    EXPECT_EQ(subtract(5, 3), 2);           // Positive numbers
+    EXPECT_EQ(subtract(-5, -3), -2);        // Negative numbers
+    EXPECT_EQ(subtract(7.5, 3.5), 4);       // Decimal numbers
+}
+
+// Test cases for multiplication
+TEST(CalculatorTest, Multiplication) {
+    EXPECT_EQ(multiply(3, 4), 12);          // Positive numbers
+    EXPECT_EQ(multiply(-3, 4), -12);        // Negative and positive
+    EXPECT_EQ(multiply(2.5, 4), 10);        // Decimal numbers
+}
+
+// Test cases for division
+TEST(CalculatorTest, Division) {
+    EXPECT_EQ(divide(8, 4), 2);             // Positive numbers
+    EXPECT_EQ(divide(-8, 4), -2);           // Negative and positive
+    EXPECT_EQ(divide(7.5, 2.5), 3);         // Decimal numbers
+    EXPECT_EQ(divide(1, 0), std::numeric_limits<double>::infinity()); // Division by zero
+}
+
+// Test cases for bitwise AND
+TEST(CalculatorTest, BitwiseAnd) {
+    EXPECT_EQ(bitwise_and(5, 3), 1);        // Basic example
+    EXPECT_EQ(bitwise_and(12, 6), 4);       // Larger numbers
+    EXPECT_EQ(bitwise_and(0, 3), 0);        // AND with zero
+}
+
+// Test cases for bitwise OR
+TEST(CalculatorTest, BitwiseOr) {
+    EXPECT_EQ(bitwise_or(5, 3), 7);         // Basic example
+    EXPECT_EQ(bitwise_or(8, 4), 12);        // Larger numbers
+    EXPECT_EQ(bitwise_or(0, 7), 7);         // OR with zero
+}
+
+// Test cases for bitwise NOT
+TEST(CalculatorTest, BitwiseNot) {
+    EXPECT_EQ(bitwise_not(0), ~0);          // NOT of zero
+    EXPECT_EQ(bitwise_not(5), ~5);          // Positive number
+    EXPECT_EQ(bitwise_not(-1), ~(-1));      // Negative number
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
