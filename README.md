@@ -41,7 +41,7 @@ The `Coq`  contains formal proofs and examples using the Coq proof assistant. Th
 ## Promela and SPIN
 
 ### Description
-The `Promela` folder contains models written in Promela for concurrent systems. These models are verified using the SPIN model checker.
+The `Promela` ("Assignment 4 ") folder contains models written in Promela for concurrent systems. These models are verified using the SPIN model checker.
 
 ### Running SPIN
 
